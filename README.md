@@ -1,2 +1,0 @@
-# Namada
-S class

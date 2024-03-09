@@ -1,44 +1,40 @@
-# Channels
-The channels are: channel-19 <=> channel-5282
 
-# Creating channels
-root@Ubuntu-2204-jammy-amd64-base ~ # hermes --config $HERMES_CONFIG   create channel   --a-chain $CHAIN_ID   --b-chain $CHAIN_ID_B   --a-port transfer   --b-port transfer   --new-client-connection --yes
-2024-02-02T19:03:48.675244Z  INFO ThreadId(01) running Hermes v1.7.4+38f41c6
-2024-02-02T19:03:48.871295Z  INFO ThreadId(01) Creating new clients, new connection, and a new channel with order ORDER_UNORDERED
-2024-02-02T19:04:04.072730Z  INFO ThreadId(01) foreign_client.create{client=osmo-test-5->shielded-expedition.b40d8e9055:07-tendermint-0}: 🍭 client was created successfully id=07-tendermint-49
-2024-02-02T19:04:06.368307Z  INFO ThreadId(01) foreign_client.create{client=shielded-expedition.b40d8e9055->osmo-test-5:07-tendermint-0}: 🍭 client was created successfully id=07-tendermint-1887
-2024-02-02T19:04:25.813703Z  INFO ThreadId(01) 🥂 shielded-expedition.b40d8e9055 => OpenInitConnection(OpenInit { Attributes { connection_id: connection-29, client_id: 07-tendermint-49, counterparty_connection_id: None, counterparty_client_id: 07-tendermint-1887 } }) at height 0-7968
-2024-02-02T19:05:03.501449Z  INFO ThreadId(01) 🥂 osmo-test-5 => OpenTryConnection(OpenTry { Attributes { connection_id: connection-1846, client_id: 07-tendermint-1887, counterparty_connection_id: connection-29, counterparty_client_id: 07-tendermint-49 } }) at height 5-5131013
-2024-02-02T19:05:30.772878Z  INFO ThreadId(01) 🥂 shielded-expedition.b40d8e9055 => OpenAckConnection(OpenAck { Attributes { connection_id: connection-29, client_id: 07-tendermint-49, counterparty_connection_id: connection-1846, counterparty_client_id: 07-tendermint-1887 } }) at height 0-7974
-2024-02-02T19:05:43.758223Z  INFO ThreadId(01) 🥂 osmo-test-5 => OpenConfirmConnection(OpenConfirm { Attributes { connection_id: connection-1846, client_id: 07-tendermint-1887, counterparty_connection_id: connection-29, counterparty_client_id: 07-tendermint-49 } }) at height 5-5131023
-2024-02-02T19:05:46.815917Z  INFO ThreadId(01) connection handshake already finished for Connection { delay_period: 0ns, a_side: ConnectionSide { chain: BaseChainHandle { chain_id: shielded-expedition.b40d8e9055 }, client_id: 07-tendermint-49, connection_id: connection-29 }, b_side: ConnectionSide { chain: BaseChainHandle { chain_id: osmo-test-5 }, client_id: 07-tendermint-1887, connection_id: connection-1846 } }
-2024-02-02T19:06:03.233092Z  INFO ThreadId(01) 🎊  shielded-expedition.b40d8e9055 => OpenInitChannel(OpenInit { port_id: transfer, channel_id: channel-19, connection_id: None, counterparty_port_id: transfer, counterparty_channel_id: None }) at height 0-7977
-2024-02-02T19:06:16.035186Z  INFO ThreadId(01) 🎊  osmo-test-5 => OpenTryChannel(OpenTry { port_id: transfer, channel_id: channel-5282, connection_id: connection-1846, counterparty_port_id: transfer, counterparty_channel_id: channel-19 }) at height 5-5131031
-2024-02-02T19:06:37.458004Z  INFO ThreadId(01) 🎊  shielded-expedition.b40d8e9055 => OpenAckChannel(OpenAck { port_id: transfer, channel_id: channel-19, connection_id: connection-29, counterparty_port_id: transfer, counterparty_channel_id: channel-5282 }) at height 0-7980
-2024-02-02T19:06:51.861462Z  INFO ThreadId(01) 🎊  osmo-test-5 => OpenConfirmChannel(OpenConfirm { port_id: transfer, channel_id: channel-5282, connection_id: connection-1846, counterparty_port_id: transfer, counterparty_channel_id: channel-19 }) at height 5-5131040
-2024-02-02T19:06:54.899270Z  INFO ThreadId(01) channel handshake already finished for Channel { ordering: ORDER_UNORDERED, a_side: ChannelSide { chain: BaseChainHandle { chain_id: shielded-expedition.b40d8e9055 }, client_id: 07-tendermint-49, connection_id: connection-29, port_id: transfer, channel_id: channel-19, version: None }, b_side: ChannelSide { chain: BaseChainHandle { chain_id: osmo-test-5 }, client_id: 07-tendermint-1887, connection_id: connection-1846, port_id: transfer, channel_id: channel-5282, version: None }, connection_delay: 0ns }
+	          Namada	                          Osmosis
+Chain-id	shielded-expedition.88f17d1d14   	osmo-test-5
+Channel-id	channel-509	                        channel-5956
+Client-id	07-tendermint-1801	                07-tendermint-2435
+
+
+Proof:
+Transaction Namada - Osmosis:
+https://www.mintscan.io/osmosis-testnet/tx/EBC1D8E0986F5DF2A5E54834C6E794C98A4AB89DC3B4EAE2F27BEFE5C39492C4?height=5899091
+
+Osmosis - Namada
+https://www.mintscan.io/osmosis-testnet/tx/4A8E1171A2CBD2EB665E2B03CD4B8DF2DCC38D98B3AC4B171258BB317B715AE9?height=5899180
+
+Create channels:
 SUCCESS Channel {
     ordering: Unordered,
     a_side: ChannelSide {
         chain: BaseChainHandle {
             chain_id: ChainId {
-                id: "shielded-expedition.b40d8e9055",
+                id: "shielded-expedition.88f17d1d14",
                 version: 0,
             },
             runtime_sender: Sender { .. },
         },
         client_id: ClientId(
-            "07-tendermint-49",
+            "07-tendermint-2172",
         ),
         connection_id: ConnectionId(
-            "connection-29",
+            "connection-1031",
         ),
         port_id: PortId(
             "transfer",
         ),
         channel_id: Some(
             ChannelId(
-                "channel-19",
+                "channel-626",
             ),
         ),
         version: None,
@@ -52,17 +48,17 @@ SUCCESS Channel {
             runtime_sender: Sender { .. },
         },
         client_id: ClientId(
-            "07-tendermint-1887",
+            "07-tendermint-2605",
         ),
         connection_id: ConnectionId(
-            "connection-1846",
+            "connection-2444",
         ),
         port_id: PortId(
             "transfer",
         ),
         channel_id: Some(
             ChannelId(
-                "channel-5282",
+                "channel-6135",
             ),
         ),
         version: None,
